@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/info_user_txt_tit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/info_user_tit"
+        android:textSize="18sp"
+        android:textColor="@color/fbutton_color_wisteria"
+        android:fontFamily="@font/roboto_light"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/giv_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="75dp"
+        android:padding="8dp"
+        android:text="@string/given_name"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="15sp"
+        android:textColor="@color/place_autocomplete_search_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/giv_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/label_type_your_comment"
+        android:inputType="textMultiLine|text"
+        android:padding="8dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/giv_txt" />
+
+    <TextView
+        android:id="@+id/fam_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:padding="8dp"
+        android:text="@string/family_name"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="15sp"
+        android:textColor="@color/place_autocomplete_search_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/giv_edt" />
+
+    <EditText
+        android:id="@+id/fam_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_light"
+        android:hint="@string/label_type_your_comment"
+        android:inputType="textMultiLine|text"
+        android:padding="8dp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fam_txt" />
+
+    <TextView
+        android:id="@+id/date_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:padding="8dp"
+        android:text="@string/date_birth"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="15sp"
+        android:textColor="@color/place_autocomplete_search_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fam_edt" />
+
+    <EditText
+        android:id="@+id/date_input_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="@string/date_text"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/date_txt" />
+
+    <ImageButton
+        android:id="@+id/date_icon_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_calendar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/date_input_txt"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintTop_toBottomOf="@+id/date_txt"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/email_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:padding="8dp"
+        android:text="@string/email_txt"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="15sp"
+        android:textColor="@color/place_autocomplete_search_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_input_txt" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email_text"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_txt"/>
+
+    <TextView
+        android:id="@+id/phone_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:padding="8dp"
+        android:text="@string/phone_txt"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="15sp"
+        android:textColor="@color/place_autocomplete_search_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <LinearLayout
+        android:id="@+id/lin_ccp_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:layout_weight="2"
+        app:layout_constraintTop_toBottomOf="@+id/phone_txt">
+
+        <com.hbb20.CountryCodePicker
+            android:background="@android:color/white"
+            android:id="@+id/ccp_user"
+            android:layout_width="0dp"
+            android:padding="0.3dp"
+            android:layout_weight="1"
+            app:ccp_textSize="13dp"
+            android:layout_height="wrap_content"
+            app:ccp_countryPreference="us,in"
+            />
+
+        <EditText
+            android:id="@+id/inputMobile"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="15sp"
+            android:hint="@string/lbl_mobile"
+            android:inputType="phone"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/label_submit"
+        style="@style/Widget.Tasker.RaisedButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lin_ccp_user" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_cancel"
+        style="@style/Widget.Tasker.BorderlessButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lin_ccp_user" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

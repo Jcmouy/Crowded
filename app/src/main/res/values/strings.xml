@@ -1,0 +1,182 @@
+<resources>
+    <string name="app_name" translatable="false">AppCrowded</string>
+
+    <!-- SMS -->
+    <string name="action_logout">Exit</string>
+    <string name="msg_start_app">Welcome to Crowded!</string>
+    <string name="btt_teacher">TEACHER</string>
+    <string name="btt_student">STUDENT</string>
+    <string name="msg_teacher_start">Please enter your Username and Password</string>
+    <string name="msg_enter_mobile">To get started please complete the following fields!</string>
+    <string name="lbl_username">Username</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_pass">Password</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_mobile">Mobile</string>
+    <string name="lbl_next">NEXT</string>
+    <string name="lbl_next_teacher">ENTER</string>
+    <string name="msg_sit_back">Wait while we check the cell phone number</string>
+    <string name="msg_manual_otp">(In case the automatic SMS detection fails, enter the OTP code in the field below)</string>
+    <string name="lbl_enter_otp">Enter OTP</string>
+    <string name="lbl_submit">SEND</string>
+    <string name="name_teacher">"Teacher's name "</string>
+    <string name="msg_dire_ing">Your address has been entered correctly</string>
+    <string name="btn_registrar_ubicacion">Register</string>
+    <string name="btn_buscar_ubicacion">Find your address</string>
+    <string name="btn_guardar_ubicacion">Save your address</string>
+    <string name="country_prompt">SELECT SUBJECT</string>
+    <string name="searchquery">Enter desired location...</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Error -->
+    <string name="reg_student_mobile_err">Please enter a valid mobile number</string>
+    <string name="reg_details_err">Please enter the following information</string>
+    <string name="log_teacher_error">Please check the data entered.</string>
+    <string name="server_get_rest">I\'m very sorry, an error occurred while getting the information from the server.</string>
+    <string name="slide_2_title">Come inside!</string>
+    <string name="slide_2_desc">Here you will find fantastic stories and incredible worlds</string>
+    <string name="slide_1_title" translatable="false">"AppCrowded "</string>
+    <string name="slide_1_desc">Welcome to the magic world of AppCrowded where anything can happen!</string>
+    <string name="slide_3_title">Adventure</string>
+    <string name="slide_3_desc">"Be part of our stories, and prepare to face the unknown!"</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="slides_ended">UNDERSTOOD</string>
+    <string name="start">UNDERSTOOD</string>
+
+    <!-- WelcomeActivity -->
+    <string name="change_orientation">Change Orientation</string>
+    <string name="rotate">Rotate</string>
+    <string name="title_fragment_slider">Fragment Slider</string>
+    <string name="anti_clock_spin">Anti Clock Spin</string>
+    <string name="clock_spin">Clock Spin</string>
+    <string name="cube_in_depth">Cube In Depth</string>
+    <string name="cube_in_rotate">Cube In Rotate</string>
+    <string name="cube_in_scaling">Cube In Scaling</string>
+    <string name="cube_out_depth">Cube Out Depth</string>
+    <string name="cube_out_rotate">Cube Out Rotate</string>
+    <string name="cube_out_scaling">Cube Out Scaling</string>
+    <string name="depth_page">Depth Page</string>
+    <string name="depth">Depth</string>
+    <string name="fade_out">Fade Out</string>
+    <string name="fan">Fan</string>
+    <string name="fidget_spin">"Fidget Spin "</string>
+    <string name="gate">"Gate "</string>
+    <string name="hinge">Hinge</string>
+    <string name="horizontal_flip">Horizontal Flip</string>
+    <string name="pop">Pop</string>
+    <string name="simple_transformation">Simple</string>
+    <string name="spinner_transformation">Spinner</string>
+    <string name="toss_transformation">Toss</string>
+    <string name="vertical_flip">Vertical Flip</string>
+    <string name="vertical_shut">Vertical Shut</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="facebook_logo">Continue with Facebook</string>
+    <string name="google_logo_sign">Sign in with Google</string>
+    <string name="google_logo" translatable="false">Google</string>
+    <string name="btt_cellphone_reg">Continue with Cellphone</string>
+    <string name="txt_or">OR</string>
+    <string name="txt_continue_with">Continue with</string>
+    <string name="facebook_app_id" translatable="false">385130872483784</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb385130872483784</string>
+    <string name="info_user_tit">Please verify the entered data, and fill in the missing ones.</string>
+    <string name="given_name">Given Name</string>
+    <string name="label_type_your_comment">Text...</string>
+    <string name="label_submit">Submit</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="family_name">Family Name</string>
+    <string name="date_birth">Date of Birth</string>
+    <string name="date_text">Date...</string>
+    <string name="email_txt">Email</string>
+    <string name="email_text">Email...</string>
+    <string name="phone_txt">Phone Number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="menu_communications">Messages</string>
+    <string name="menu_categories">Categories</string>
+    <string name="menu_profile">Profile</string>
+    <string name="load_more">Load More</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="date_today">Today</string>
+    <string name="date_yesterday">Yesterday</string>
+    <string name="date_january">January</string>
+    <string name="date_february">February</string>
+    <string name="date_march">March</string>
+    <string name="date_april">April</string>
+    <string name="date_may">May</string>
+    <string name="date_june">June</string>
+    <string name="date_july">July</string>
+    <string name="date_august">August</string>
+    <string name="date_september">September</string>
+    <string name="date_october">October</string>
+    <string name="date_november">November</string>
+    <string name="date_december">December</string>
+    <string name="communication_title">Last messages from Plays</string>
+    <string name="profile_title">Profile</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_notifications">Notifications</string>
+    <string name="summary_choose_ringtone">Choose notification sound</string>
+    <string name="pref_header_about">About</string>
+    <string name="summary_about">Crowded providing a world full of emotion and fantasy to its users - by UyDevs</string>
+    <string name="app_version" translatable="false">1.0</string>
+    <string name="summary_support">Got any queries? We are happy to help!</string>
+    <string name="title_send_feedback">Send Feedback</string>
+    <string name="title_faq" translatable="false">FAQ</string>
+    <string name="summary_faq">View frequently asked questions</string>
+    <string name="url_faq" translatable="false">http://www.uydevs.com/info/privacy-policy/</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="url_privacy" translatable="false">http://www.uydevs.com/info/privacy-policy/</string>
+    <string name="title_terms">Terms &amp; Conditions</string>
+    <string name="url_terms" translatable="false">http://www.uydevs.com/info/privacy-policy/</string>
+    <string name="title_version">Version</string>
+    <string name="choose_email_client">Choose email client</string>
+    <string name="title_gallery_storage">Default Storage</string>
+    <string name="title_new_notification_sound">Priority of notifications</string>
+    <string name="summury_new_notification_sound">Show notification icon at the top of the screen</string>
+    <string name="title_vibrate">Vibrate</string>
+    <string name="summary_vibrate">Vibrate on new notification</string>
+    <string name="key_upload_over_wifi" translatable="false">key_upload_over_wifi</string>
+    <string name="key_upload_quality" translatable="false">key_upload_quality</string>
+    <string name="notifications_new_message" translatable="false">notifications_new_message</string>
+    <string name="key_notifications_new_message_ringtone" translatable="false">key_notifications_new_message_ringtone</string>
+    <string name="key_vibrate" translatable="false">key_vibrate</string>
+    <string name="key_send_feedback" translatable="false">key_send_feedback</string>
+    <string name="title_font_size">Font Size</string>
+    <string name="key_font_size" translatable="false">key_font_size</string>
+    <string name="summary_font_size">Select the desired size for the message text</string>
+    <string name="key_download_media" translatable="false">key_download_media</string>
+    <string name="summary_download_media">Automatically download videos/pictures when wifi is available</string>
+    <string name="title_download_media">Download media</string>
+    <string name="pref_default_storage">Default Storage</string>
+    <string name="summary_default_storage">Select the location where to save the content of the app</string>
+    <string name="key_default_storage" translatable="false">key_default_storage</string>
+
+    <string name="pref_font_size_entries_small">Small</string>
+    <string name="pref_font_size_entries_medium" >Medium</string>
+    <string name="pref_font_size_entries_big">Big</string>
+    <string name="pref_default_storage_entries_internal">Internal storage</string>
+    <string name="pref_default_storage_entries_external" >SD Card</string>
+
+    <string name="pref_feedback_email_body_one" >Please do not remove this information</string>
+    <string name="pref_feedback_email_body_two" >Device OS: Android</string>
+    <string name="pref_feedback_email_body_three" >Device OS version:</string>
+    <string name="pref_feedback_email_body_four" >App Version:</string>
+    <string name="pref_feedback_email_body_five" >Device Brand:</string>
+    <string name="pref_feedback_email_body_six" >Device Model:</string>
+    <string name="pref_feedback_email_body_seven" >Device Manufacturer:</string>
+    <string name="pref_feedback_email_contact" translatable="false">contact@uydevs.com</string>
+    <string name="pref_feedback_email_subject" >Query from Crowded</string>
+
+    <string name="play_name" >Name of play:</string>
+    <string name="play_description" >Description:</string>
+    <string name="play_starring" >Starring:</string>
+    <string name="play_address" >Address:</string>
+    <string name="play_authors" >Authors:</string>
+    <string name="play_date" >Date:</string>
+    <string name="play_length" >Length:</string>
+    <string name="play_type" >Type:</string>
+
+</resources>

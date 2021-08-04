@@ -531,8 +531,8 @@ public class SmsActivity extends AppCompatActivity implements View.OnClickListen
         ccp = dialogView.findViewById(R.id.ccp_user);
 
         LoginData loginData = new LoginData();
-        loginData.setUsername(getResources().getString(R.string.user_default));
-        loginData.setPassword(getResources().getString(R.string.password_default));
+        loginData.setUsername("admin");
+        loginData.setPassword("admin");
         // tokenInt = new TokenInterceptor();
         mUsuarioServiceIo = RemoteUtils.getUsuarioServiceIo();
         getUserToken(loginData);

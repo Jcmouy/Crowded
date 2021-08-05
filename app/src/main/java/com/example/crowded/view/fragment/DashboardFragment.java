@@ -27,8 +27,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.crowded.Data.remote.RemoteUtils;
 import com.example.crowded.R;
 import com.example.crowded.helper.PrefManager;
+import com.example.crowded.io.CoordinatesServiceIO;
 import com.example.crowded.util.FormatDate;
 import com.example.crowded.util.GpsLoc;
 import com.github.clans.fab.FloatingActionButton;
@@ -42,9 +44,13 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.maps.android.heatmaps.HeatmapTileProvider;
+import com.google.maps.android.heatmaps.WeightedLatLng;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import java.io.IOException;
@@ -82,6 +88,8 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback {
     private GpsLoc gpsLoc;
 
     private PrefManager pref;
+    private CoordinatesServiceIO mCoordinatesServiceIo;
+    private JsonArray list_coordinates;
 
     private Button btnSeleccionarDireccion, btnGuardarDireccion, btnVerificarDireccion;
     private InputMethodManager imm = null;
@@ -119,6 +127,7 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback {
 
         pref = new PrefManager(getActivity());
         imm = (InputMethodManager) getActivity().getSystemService(requireContext().INPUT_METHOD_SERVICE);
+        mCoordinatesServiceIo = RemoteUtils.getCoordinatesServiceIo();
 
         SearchView searchAsig = view.findViewById(R.id.search_mat);
         txtDireccion = view.findViewById(R.id.txtDireccion);
@@ -201,6 +210,8 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback {
 
         /////////////////////////////////////////////////////////
 
+        getLocation();
+
         return view;
     }
 
@@ -245,19 +256,6 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Actual position in the world map
-        LatLng actual = new LatLng(-34.85805009727135, -56.221547068399886);
-        mMap.addMarker(new MarkerOptions().position(actual).title("Tu ubicación"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(actual));
-        // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(actual.latitude,actual.longitude),DEFAULT_ZOOM));
-
-        /*
-        mMap.addMarker(new MarkerOptions().position(p1).title(direccion));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(p1));
-         */
-
     }
 
     public void pantallaBuscarDireccion(boolean buscar){
@@ -323,6 +321,41 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
+    private void getLocation() {
+        mCoordinatesServiceIo.getLocation(-34.90311720505058,-56.17915734398596).enqueue(new Callback<List<JsonObject>>() {
+            @Override
+            public void onResponse(Call<List<JsonObject>> call, Response<List<JsonObject>> response) {
+
+                if(response.isSuccessful()) {
+
+                    JsonObject coordinate = new JsonObject();
+                    list_coordinates = new JsonArray();
+
+                    for (int i = 0; i < response.body().size(); i++){
+                        coordinate = response.body().get(i);
+                        list_coordinates.add(coordinate);
+                    }
+
+                    generateHeatMapData();
+
+                }else if(response.errorBody() != null){
+                    try {
+                        String errorBody = response.errorBody().string();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    int statusCode  = response.code();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<JsonObject>> call, Throwable t) {
+            }
+        });
+    }
+
 
     public void initalLoginScreen() {
         cardInitalAddress.setVisibility(View.GONE);
@@ -341,5 +374,34 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback {
         list_markerAsig = new ArrayList<>();
     }
 
+    public void generateHeatMapData () {
+        List<WeightedLatLng> data = new ArrayList<>();
 
+        for (int i = 0; i < list_coordinates.size(); i++) {
+            JsonObject entry = list_coordinates.get(i).getAsJsonObject();
+            double lat = entry.get("latitude").getAsDouble();
+            double lon = entry.get("longitude").getAsDouble();
+            double density = 200;
+
+            if (density != 0.0) {
+                WeightedLatLng weightedLatLng = new WeightedLatLng(new LatLng(lat, lon), density);
+                data.add(weightedLatLng);
+            }
+        }
+
+        HeatmapTileProvider heatMapProvider = new HeatmapTileProvider.Builder()
+                .weightedData(data) // load our weighted data
+                .radius(50) // optional, in pixels, can be anything between 20 and 50
+                .maxIntensity(1000.0) // set the maximum intensity
+                .build();
+
+        mMap.addTileOverlay(new TileOverlayOptions().tileProvider(heatMapProvider));
+
+        // Actual position in the world map
+        LatLng actual = new LatLng(-34.85805009727135, -56.221547068399886);
+        mMap.addMarker(new MarkerOptions().position(actual).title("Tu ubicación"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(actual));
+        // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(actual.latitude,actual.longitude),DEFAULT_ZOOM));
+    }
 }

@@ -18,6 +18,8 @@ import com.example.crowded.util.constants.ConstantMenuFrag;
 import com.example.crowded.view.fragment.DashboardFragment;
 import com.example.crowded.view.fragment.HandleFragment;
 import com.example.crowded.view.fragment.ProfileFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.jetbrains.annotations.NotNull;
@@ -27,8 +29,11 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import com.google.maps.android.heatmaps.HeatmapTileProvider;
+import com.google.maps.android.heatmaps.WeightedLatLng;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.sephiroth.android.library.bottomnavigation.BadgeProvider;
@@ -44,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigation.
     private Fragment fragment;
     private FragmentManager fragmentManager;
     private PrefManager pref;
-    private CoordinatesServiceIO mCoordinatesServiceIo;
     private HandleFragment handleFrag;
 
     private String currentFragment = "";
@@ -59,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigation.
         setContentView(R.layout.activity_main);
 
         pref = new PrefManager(this);
-        mCoordinatesServiceIo = RemoteUtils.getCoordinatesServiceIo();
 
         CoordinatorLayout coordinatorLayout = findViewById(R.id.main_coordinator_container);
         FrameLayout frameLayout = findViewById(R.id.main_frame_container);
@@ -85,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigation.
 
         //Seteo por defecto el mapa
         bottomNavigation.setDefaultSelectedIndex(1);
-
-        getLocation();
     }
 
     @Override
@@ -118,34 +119,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigation.
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
             fragment.onActivityResult(requestCode, resultCode, data);
         }
-    }
-
-    private void getLocation() {
-        mCoordinatesServiceIo.getLocation(-34.90529947032553,-56.19661526924325).enqueue(new Callback<List<JsonObject>>() {
-            @Override
-            public void onResponse(Call<List<JsonObject>> call, Response<List<JsonObject>> response) {
-
-                if(response.isSuccessful()) {
-
-                    Log.d("SmsActivity", "RequestSMS successful");
-                    Toast.makeText(getApplicationContext(), "SMS sent", Toast.LENGTH_SHORT).show();
-
-                }else if(response.errorBody() != null){
-                    try {
-                        String errorBody = response.errorBody().string();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                else {
-                    int statusCode  = response.code();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<JsonObject>> call, Throwable t) {
-            }
-        });
     }
 
     @Override

@@ -60,7 +60,7 @@
             android:exported="false" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="p9K2Wo6fxZqIdkUEAviVLVnP" />
+            android:value="AIzaSyDtuxzRx2oXCzcheZn12N40aj4GdyGgmyU" />
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity android:name="com.facebook.FacebookActivity" android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:label="@string/app_name" />
         <activity android:name="com.facebook.CustomTabActivity" android:exported="true">
